@@ -1,4 +1,4 @@
-package BankAccount;
+package BankAccount.Bank_Account;
 
 // Checking Account
 public class CheckingAccount extends Account {

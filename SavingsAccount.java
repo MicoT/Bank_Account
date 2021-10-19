@@ -1,4 +1,4 @@
-package BankAccount;
+package BankAccount.Bank_Account;
 
 // Savings Account child class
 // has an interest rate
