@@ -1,6 +1,7 @@
 package BankAccount.Bank_Account;
 import java.text.DecimalFormat;
-
+import java.time.format.DateTimeFormatter;  
+import java.time.LocalDateTime;    
 import javax.swing.JOptionPane;
 
 public class POS {
@@ -9,7 +10,7 @@ public class POS {
         String orders = "";
         String receipt = "\t***ABC Foods***"+
                          "\n\t\t\tDavao City\n\n"+
-                         "Items          Qty          Subtotal\n";
+                         "Items                 Qty                Subtotal\n";
         int choice;
         double qty;
         int index=0; 
@@ -29,6 +30,7 @@ public class POS {
                     "\n3 - Coke \t50.00"+
                     "\n4 - Exit"+
                     "\n\nEnter your choice: ";
+        
         do{
         choice = Integer.parseInt(JOptionPane.showInputDialog(menu));
         
@@ -37,7 +39,7 @@ public class POS {
 
             index = choice-1;
             subtotal+=price[index]*qty;
-            orders+=products[index]+"         "+qty+"            "+subtotal+"\n";
+            orders+=products[index]+"             "+qty+"                "+subtotal+"\n";
 
             total+=subtotal;
         }
@@ -59,7 +61,6 @@ public class POS {
          DecimalFormat df3 = new DecimalFormat("0.00");
          String vatStr =df3.format(vat);
          vat = Double.valueOf(vatStr);
-        
 
         receipt+=orders;
         receipt+="\nTotal:                            "+total;
@@ -67,6 +68,7 @@ public class POS {
         receipt+="\nnexVAT:                     "+exVAT;
         receipt+="\nnVAT:                       "+vat;
         receipt+="\nChange:                       "+change;
+        receipt+="\nDate of Purchase:             "+java.time.LocalDate.now();
         JOptionPane.showMessageDialog(null, receipt);
 
         System.out.println(name);
